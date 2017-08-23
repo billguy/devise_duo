@@ -1,15 +1,15 @@
 class Devise::DeviseDuoController < DeviseController
 
-  prepend_before_filter :find_resource_and_require_password_checked, :only => [
+  prepend_before_action :find_resource_and_require_password_checked, :only => [
     :GET_verify_duo, :POST_verify_duo
   ]
-  prepend_before_filter :authenticate_scope!, :only => [
+  prepend_before_action :authenticate_scope!, :only => [
     :GET_enable_duo, :POST_enable_duo,
     :GET_verify_duo_installation,
     :POST_disable_duo
   ]
 
-  skip_before_filter :verify_authenticity_token, only: :POST_verify_duo
+  skip_before_action :verify_authenticity_token, only: :POST_verify_duo
 
   include Devise::Controllers::Helpers
 
