@@ -1,7 +1,7 @@
 source "https://rubygems.org"
 
 gem "devise"
-gem "loofah", "~> 2.2.1"
+gem "loofah", "~> 2.2.3"
 
 group :development do
   gem "rspec"
